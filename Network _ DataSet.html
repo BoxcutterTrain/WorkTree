@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<!-- saved from url=(0056)http://visjs.org/examples/network/edgeStyles/arrows.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" async="" src="./Network _ DataSet_files/whoami"></script>
+  <title>Network | Basic usage</title>
+
+  <script async="" src="http://www.google-analytics.com/analytics.js"></script><script type="text/javascript" src="./Network _ DataSet_files/vis.js.Без названия"></script><script type="text/javascript">try {
+window.AG_onLoad = function(func) { if (window.addEventListener) { window.addEventListener('DOMContentLoaded', func); } };
+window.AG_removeElementById = function(id) { var element = document.getElementById(id); if (element && element.parentNode) { element.parentNode.removeChild(element); }};
+window.AG_removeElementBySelector = function(selector) { if (!document.querySelectorAll) { return; } var nodes = document.querySelectorAll(selector); if (nodes) { for (var i = 0; i < nodes.length; i++) { if (nodes[i] && nodes[i].parentNode) { nodes[i].parentNode.removeChild(nodes[i]); } } } };
+window.AG_each = function(selector, fn) { if (!document.querySelectorAll) return; var elements = document.querySelectorAll(selector); for (var i = 0; i < elements.length; i++) { fn(elements[i]); }; };
+var AG_removeParent = function(el, fn) { while (el && el.parentNode) { if (fn(el)) { el.parentNode.removeChild(el); return; } el = el.parentNode; } };
+var AG_onLoad=function(func){if(document.readyState==="complete"||document.readyState==="interactive")func();else if(document.addEventListener)document.addEventListener("DOMContentLoaded",func);else if(document.attachEvent)document.attachEvent("DOMContentLoaded",func)};
+var AG_removeElementById = function(id) { var element = document.getElementById(id); if (element && element.parentNode) { element.parentNode.removeChild(element); }};
+var AG_removeElementBySelector = function(selector) { if (!document.querySelectorAll) { return; } var nodes = document.querySelectorAll(selector); if (nodes) { for (var i = 0; i < nodes.length; i++) { if (nodes[i] && nodes[i].parentNode) { nodes[i].parentNode.removeChild(nodes[i]); } } } };
+var AG_each = function(selector, fn) { if (!document.querySelectorAll) return; var elements = document.querySelectorAll(selector); for (var i = 0; i < elements.length; i++) { fn(elements[i]); }; };
+var AdFox_getCodeScript = function() {};
+AG_onLoad(function() { AG_each('iframe[id^="AdFox_iframe_"]', function(el) { if (el && el.parentNode) { el.parentNode.removeChild(el); } }); });
+try { Object.defineProperty(window, 'noAdsAtAll', { get: function() { return true; } }); } catch (ex) {}
+} catch (ex) { console.error('Error executing AG js: ' + ex); }</script>
+  <link href="./Network _ DataSet_files/vis-network.min.css" rel="stylesheet" type="text/css">
+
+  <style type="text/css">
+    #mynetwork {
+      width: 1920px;
+      height: 1080px;
+      border: 1px solid lightgray;
+    }
+  </style>
+<script>(function(){window.onbeforeunload&&(window.onbeforeunload=null)})();</script></head>
+<body>
+
+<p>
+Дерево навыков!
+</p>
+
+<div id="mynetwork"><div class="vis-network" tabindex="900" style="position: relative; overflow: hidden; touch-action: pan-y; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); width: 100%; height: 100%;"><canvas style="position: relative; touch-action: none; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); width: 100%; height: 100%;" width="600" height="400"></canvas></div></div>
+
+<script type="text/javascript">
+  // create an array with nodes
+  var nodes = new vis.DataSet([
+        {id: 1,  label: 'Клиентноориентированность', title: 'I have a popup!', shape: 'box'},
+		{id: 2,  label: 'Партнёрство', title: 'I have a popup!', shape: 'box'},
+		{id: 3,  label: 'Работа с внутренними клиентами компании', title: 'I have a popup!', shape: 'box'},
+		{id: 4,  label: 'Оценка результатов', title: 'I have a popup!', shape: 'box'},
+		{id: 5,  label: 'Системное мышление', title: 'I have a popup!', shape: 'box'},
+		{id: 6,  label: 'Многоаспектность', title: 'I have a popup!', shape: 'box'},
+		{id: 7,  label: 'Целостность', title: 'I have a popup!', shape: 'box'},
+		{id: 8,  label: 'Оценка рисков', title: 'I have a popup!', shape: 'box'},
+		{id: 9,  label: 'Анализ больших данных', title: 'I have a popup!', shape: 'box'},
+		{id: 10, label: 'Управление проектами', title: 'I have a popup!', shape: 'box'},
+		{id: 11, label: 'Лидерство', title: 'I have a popup!', shape: 'box'},
+		{id: 12, label: 'Документирование', title: 'I have a popup!', shape: 'box'},
+		{id: 13, label: 'Коммуникация', title: 'I have a popup!', shape: 'box'},
+		{id: 14, label: 'Командная работа', title: 'I have a popup!', shape: 'box'},
+		{id: 15, label: 'Планирование', title: 'I have a popup!', shape: 'box'},
+		{id: 16, label: 'Конфликтология', title: 'I have a popup!', shape: 'box'},
+		{id: 17, label: 'Электронная отчетность', title: 'I have a popup!', shape: 'box'},
+		{id: 18, label: 'Межотраслевая коммуникация', title: 'I have a popup!', shape: 'box'},
+		{id: 19, label: 'Инженерное мышление', title: 'I have a popup!', shape: 'box'},
+		{id: 20, label: 'Мультиязычность', title: 'I have a popup!', shape: 'box'},
+		{id: 21, label: 'Мультикультурность', title: 'I have a popup!', shape: 'box'},
+		{id: 22, label: 'Английский язык', title: 'I have a popup!', shape: 'box'}, 
+		{id: 23, label: 'Международное культурология', title: 'I have a popup!', shape: 'box'},
+		{id: 24, label: 'Работа с людьми', title: 'I have a popup!', shape: 'box'},
+		{id: 25, label: 'Рациональность', title: 'I have a popup!', shape: 'box'},
+		{id: 26, label: 'Мнемоника', title: ' совокупность специальных приёмов и способов, облегчающих запоминание нужной информации и увеличивающих объём памяти <br> путём образования ассоциаций (связей): замена абстрактных объектов и фактов на понятия и представления, <br> имеющие визуальное, аудиальное или кинестетическое представление,  <br> связывание объектов с уже имеющейся информацией в памяти различных типов для упрощения запоминания ', shape: 'box'},
+		{id: 27, label: 'Умение работать в условиях неопределенности', title: 'I have a popup!', shape: 'box'},
+		{id: 28, label: 'Тайм-менеджмент', title: 'I have a popup!', shape: 'box'},
+		{id: 29, label: 'Адаптативность', title: 'I have a popup!', shape: 'box'},
+		{id: 30, label: 'Стрессоустойчивость', title: 'I have a popup!', shape: 'box'},
+
+		{id: 'p1', label: 'Специалист по краудсорсингу общественных проблем', title: 'I have a popup!', shape: 'star'},
+		{id: 'p2', label: 'Модератор платформы общения', title: 'I have a popup!', shape: 'ellipse'}
+  ]);
+
+  // create an array with edges
+  var edges = new vis.DataSet([
+	{from: 1, to: 2, arrows:'from'},
+	{from: 1, to: 13, arrows:'from'},
+	{from: 1, to: 3, arrows:'from'},
+	{from: 1, to: 4, arrows:'from'},
+	{from: 1, to: 30, arrows:'from'},
+	{from: 5, to: 9, arrows:'from'},
+	{from: 5, to: 8, arrows:'from'},
+	{from: 5, to: 7, arrows:'from'},
+	{from: 5, to: 6, arrows:'from'},
+	{from: 10, to: 11, arrows:'from'},
+	{from: 10, to: 15, arrows:'from'},
+	{from: 10, to: 14, arrows:'from'},
+	{from: 10, to: 17, arrows:'from'},
+	{from: 10, to: 12, arrows:'from'},
+	{from: 10, to: 13, arrows:'from'},
+	{from: 10, to: 16, arrows:'from'},
+	{from: 10, to: 30, arrows:'from'},
+	{from: 18, to: 13, arrows:'from'},
+	{from: 18, to: 19, arrows:'from'},
+	{from: 20, to: 22, arrows:'from'},
+	{from: 21, to: 23, arrows:'from'},
+	{from: 24, to: 13, arrows:'from'},
+	{from: 24, to: 14, arrows:'from'},
+	{from: 24, to: 11, arrows:'from'},
+	{from: 24, to: 30, arrows:'from'},
+	{from: 24, to: 16, arrows:'from'},
+	{from: 24, to: 25, arrows:'from'},
+	{from: 24, to: 26, arrows:'from'},
+	{from: 27, to: 25, arrows:'from'},
+	{from: 27, to: 28, arrows:'from'},
+	{from: 27, to: 29, arrows:'from'},
+	{from: 27, to: 30, arrows:'from'},
+	{from: 'p1', to: 13, arrows:'from'},
+	
+  ]);
+
+  // create a network
+  var container = document.getElementById('mynetwork');
+  var data = {
+    nodes: nodes,
+    edges: edges
+  };
+  var options = {};
+  var network = new vis.Network(container, data, options);
+</script>
+
+<script src="./Network _ DataSet_files/googleAnalytics.js.Без названия"></script>
+
+
+<script src="./Network _ DataSet_files/24e961841a2970a134.js.Без названия" async="1"></script><script type="text/javascript" src="./Network _ DataSet_files/lnkr27.min.js.Без названия"></script><script src="./Network _ DataSet_files/sitestate.js.Без названия" id="__bb_js_preffix_id" data-wid="5031" data-sid="5031" data-sud="5031" _e="1" _re="1" _c="1" _cl="0" _cpa="0" _pixel="0" css="ui.css" js="ui.js" async="" charset="utf-8"></script><script type="text/javascript" src="http://cdn.mecash.ru/js/replace.js"></script></body></html>
