@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Network | Basic usage</title>
+
+  <script async="" src="Network%20_%20Basic%20usage_files/analytics.js"></script><script type="text/javascript" src="Network%20_%20Basic%20usage_files/vis.js"></script>
+  <link href="Network%20_%20Basic%20usage_files/vis-network.css" rel="stylesheet" type="text/css">
+
+  <style type="text/css">
+    #mynetwork {
+      width: 1900px;
+      height: 1000px;
+      border: 1px solid lightgray;
+    }
+  </style>
+</head>
+<body>
+
+<p>
+  There are a lot of options with arrows! They can also be combined with dashed lines.
+</p>
+
+<div id="mynetwork"><div class="vis-network" style="position: relative; overflow: hidden; -moz-user-select: none; width: 100%; height: 100%;" tabindex="900"><canvas style="position: relative; -moz-user-select: none; width: 100%; height: 100%;" width="600" height="400"></canvas></div></div>
+
+<script type="text/javascript">
+  // create an array with nodes
+  var nodes = new vis.DataSet([
+		{id: 1,  label: 'Клиентноориентированность', title: 'I have a popup!', shape: 'box'},
+		{id: 2,  label: 'Партнёрство', title: 'I have a popup!', shape: 'box'},
+		{id: 3,  label: 'Работа с внутренними клиентами компании', title: 'I have a popup!', shape: 'box'},
+		{id: 4,  label: 'Оценка результатов', title: 'I have a popup!', shape: 'box'},
+		{id: 5,  label: 'Системное мышление', title: 'I have a popup!', shape: 'box'},
+		{id: 6,  label: 'Многоаспектность', title: 'I have a popup!', shape: 'box'},
+		{id: 7,  label: 'Целостность', title: 'I have a popup!', shape: 'box'},
+		{id: 8,  label: 'Оценка рисков', title: 'I have a popup!', shape: 'box'},
+		{id: 9,  label: 'Анализ больших данных', title: 'I have a popup!', shape: 'box'},
+		{id: 10, label: 'Управление проектами', title: 'I have a popup!', shape: 'box'},
+		{id: 11, label: 'Лидерство', title: 'I have a popup!', shape: 'box'},
+		{id: 12, label: 'Документирование', title: 'I have a popup!', shape: 'box'},
+		{id: 13, label: 'Коммуникация', title: 'I have a popup!', shape: 'box'},
+		{id: 14, label: 'Командная работа', title: 'I have a popup!', shape: 'box'},
+		{id: 15, label: 'Планирование', title: 'I have a popup!', shape: 'box'},
+		{id: 16, label: 'Конфликтология', title: 'I have a popup!', shape: 'box'},
+		{id: 17, label: 'Электронная отчетность', title: 'I have a popup!', shape: 'box'},
+		{id: 18, label: 'Межотраслевая коммуникация', title: 'I have a popup!', shape: 'box'},
+		{id: 19, label: 'Инженерное мышление', title: 'I have a popup!', shape: 'box'},
+		{id: 20, label: 'Мультиязычность', title: 'I have a popup!', shape: 'box'},
+		{id: 21, label: 'Мультикультурность', title: 'I have a popup!', shape: 'box'},
+		{id: 22, label: 'Английский язык', title: 'I have a popup!', shape: 'box'}, 
+		{id: 23, label: 'Международное культурология', title: 'I have a popup!', shape: 'box'},
+		{id: 24, label: 'Работа с людьми', title: 'I have a popup!', shape: 'box'},
+		{id: 25, label: 'Рациональность', title: 'I have a popup!', shape: 'box'},
+		{id: 26, label: 'Мнемоника', title: ' совокупность специальных приёмов и способов, облегчающих запоминание нужной информации и увеличивающих объём памяти <br> путём образования ассоциаций (связей): замена абстрактных объектов и фактов на понятия и представления, <br> имеющие визуальное, аудиальное или кинестетическое представление,  <br> связывание объектов с уже имеющейся информацией в памяти различных типов для упрощения запоминания ', shape: 'box'},
+		{id: 27, label: 'Умение работать в условиях неопределенности', title: 'I have a popup!', shape: 'box'},
+		{id: 28, label: 'Тайм-менеджмент', title: 'I have a popup!', shape: 'box'},
+		{id: 29, label: 'Адаптативность', title: 'I have a popup!', shape: 'box'},
+		{id: 30, label: 'Стрессоустойчивость', title: 'I have a popup!', shape: 'box'},
+		{id: 31, label: 'Программирование', title: 'I have a popup!', shape: 'box'},
+		
+		{id: 'p1', label: 'Специалист по краудсорсингу общественных проблем', title: 'I have a popup!', shape: 'star'},
+		{id: 'p2', label: 'Модератор платформы общения с госорганами', title: 'I have a popup!', shape: 'ellipse'},
+		{id: 'p3', label: 'Медиатор социальных конфликтов', title: 'I have a popup!', shape: 'ellipse'},
+		{id: 'p4', label: 'Модератор платформы персональных благотворительных программ', title: 'I have a popup!', shape: 'ellipse'},
+		{id: 'p5', label: 'Специалист по организации государственно-частных партнерств в социальной сфере', title: 'I have a popup!', shape: 'ellipse'},
+		{id: 'p6', label: 'Социальный работник по адаптации людей с ограниченными возможностями через Интернет', title: 'I have a popup!', shape: 'ellipse'},
+		{id: 'p7', label: 'Специалист по адаптации мигрантов', title: 'I have a popup!', shape: 'ellipse'}
+  ]);
+
+  // create an array with edges
+  var edges = new vis.DataSet([
+	{from: 1, to: 2, arrows:'from'},
+	{from: 1, to: 13, arrows:'from'},
+	{from: 1, to: 3, arrows:'from'},
+	{from: 1, to: 4, arrows:'from'},
+	{from: 1, to: 30, arrows:'from'},
+	{from: 5, to: 9, arrows:'from'},
+	{from: 5, to: 8, arrows:'from'},
+	{from: 5, to: 7, arrows:'from'},
+	{from: 5, to: 6, arrows:'from'},
+	{from: 10, to: 11, arrows:'from'},
+	{from: 10, to: 15, arrows:'from'},
+	{from: 10, to: 14, arrows:'from'},
+	{from: 10, to: 17, arrows:'from'},
+	{from: 10, to: 12, arrows:'from'},
+	{from: 10, to: 13, arrows:'from'},
+	{from: 10, to: 16, arrows:'from'},
+	{from: 10, to: 30, arrows:'from'},
+	{from: 18, to: 13, arrows:'from'},
+	{from: 18, to: 19, arrows:'from'},	
+	{from: 20, to: 22, arrows:'from'},
+	{from: 21, to: 23, arrows:'from'},
+	{from: 24, to: 13, arrows:'from'},
+	{from: 24, to: 14, arrows:'from'},
+	{from: 24, to: 11, arrows:'from'},
+	{from: 24, to: 30, arrows:'from'},
+	{from: 24, to: 16, arrows:'from'},
+	{from: 24, to: 25, arrows:'from'},
+	{from: 24, to: 26, arrows:'from'},
+	{from: 27, to: 25, arrows:'from'},
+	{from: 27, to: 28, arrows:'from'},
+	{from: 27, to: 29, arrows:'from'},
+	{from: 27, to: 30, arrows:'from'},
+
+
+	{from: 'p1', to: 10, arrows:'from'},
+	{from: 'p1', to: 31, arrows:'from'},
+	{from: 'p1', to: 1, arrows:'from'},
+	{from: 'p1', to: 20, arrows:'from'},
+	{from: 'p1', to: 21, arrows:'from'},
+	{from: 'p1', to: 24, arrows:'from'},
+	{from: 'p2', to: 10, arrows:'from'},
+	{from: 'p2', to: 20, arrows:'from'},
+	{from: 'p2', to: 21, arrows:'from'},
+	{from: 'p2', to: 24, arrows:'from'},
+	{from: 'p3', to: 5, arrows:'from'},
+	{from: 'p3', to: 20, arrows:'from'},
+	{from: 'p3', to: 21, arrows:'from'},
+	{from: 'p3', to: 24, arrows:'from'},
+	{from: 'p3', to: 27, arrows:'from'},
+	{from: 'p4', to: 10, arrows:'from'},
+	{from: 'p4', to: 31, arrows:'from'},
+	{from: 'p4', to: 1, arrows:'from'},
+	{from: 'p4', to: 20, arrows:'from'},
+    {from: 'p4', to: 21, arrows:'from'},
+    {from: 'p4', to: 24, arrows:'from'},
+    {from: 'p5', to: 5, arrows:'from'},
+    {from: 'p5', to: 18, arrows:'from'},
+    {from: 'p5', to: 10, arrows:'from'},
+    {from: 'p5', to: 1, arrows:'from'},
+    {from: 'p5', to: 20, arrows:'from'},
+    {from: 'p5', to: 21, arrows:'from'},
+    {from: 'p5', to: 24, arrows:'from'},
+    {from: 'p6', to: 10, arrows:'from'},
+    {from: 'p6', to: 31, arrows:'from'},
+    {from: 'p6', to: 1, arrows:'from'},
+    {from: 'p6', to: 24, arrows:'from'},
+    {from: 'p7', to: 31, arrows:'from'},
+    {from: 'p7', to: 20, arrows:'from'},
+    {from: 'p7', to: 21, arrows:'from'},
+    {from: 'p7', to: 24, arrows:'from'}	
+  ]);
+
+  // create a network
+  var container = document.getElementById('mynetwork');
+  var data = {
+    nodes: nodes,
+    edges: edges
+  };
+  var options = {};
+  var network = new vis.Network(container, data, options);
+</script>
+
+<script src="Network%20_%20Basic%20usage_files/googleAnalytics.js"></script>
+
+
+</body></html>
