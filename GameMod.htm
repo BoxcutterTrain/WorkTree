@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Game Mod - Work Tree</title>
+
+</script><script type="text/javascript" src="GameMod_files/vis.js"></script>
+  <link href="GameMod_files/vis-network.css" rel="stylesheet" type="text/css">
+
+  <style type="text/css">
+    #mynetwork {
+      width: '100%';
+      height: 1000px;
+      border: 1px solid lightgray;
+    }
+  </style>
+</head>
+<body>
+
+
+
+<div id="mynetwork"><div class="vis-network" style="position: relative; overflow: hidden; -moz-user-select: none; width: 100%; height: 100%;" tabindex="900"><canvas style="position: relative; -moz-user-select: none; width: 100%; height: 100%;" width="1900" height="1000"></canvas><div class="vis-network-tooltip" style="left: 180px; top: 926px; visibility: hidden;">Получен навык!</div></div></div>
+<pre id="eventSpan"></pre>
+
+
+<script type="text/javascript">
+  // create an array with nodes
+  var nodes = new vis.DataSet([
+		{id: 1, color: 'grey',   label: 'Клиентноориентированность', title: 'Получен навык!', shape: 'box'},
+		{id: 2, color: 'grey',   label: 'Партнёрство', title: 'Получен навык!', shape: 'box', hidden:false},
+		{id: 3, color: 'grey',   label: 'Работа с внутренними клиентами компании', title: 'Получен навык!', shape: 'box', hidden:false},
+		{id: 4, color: 'grey',   label: 'Оценка результатов', title: 'Получен навык!', shape: 'box', hidden:false},
+		{id: 5, color: 'grey',   label: 'Системное мышление', title: 'Получен навык!', shape: 'box'},
+		{id: 6,  color: 'grey',  label: 'Многоаспектность', title: 'Получен навык!', shape: 'box'},
+		{id: 7,  color: 'grey',  label: 'Целостность', title: 'Получен навык!', shape: 'box'},
+		{id: 8,  color: 'grey',  label: 'Оценка рисков', title: 'Получен навык!', shape: 'box'},
+		{id: 9,  color: 'grey',  label: 'Анализ больших данных', title: 'Получен навык!', shape: 'box'},
+		{id: 10, color: 'grey',  label: 'Управление проектами', title: 'Получен навык!', shape: 'box'},
+		{id: 11, color: 'grey',  label: 'Лидерство', title: 'Получен навык!', shape: 'box'},
+		{id: 12, color: 'grey',  label: 'Документирование', title: 'Получен навык!', shape: 'box'},
+		{id: 13, color: 'grey',  label: 'Коммуникация', title: 'Получен навык!', shape: 'box'},
+		{id: 14, color: 'grey',  label: 'Командная работа', title: 'Получен навык!', shape: 'box'},
+		{id: 15, color: 'grey',  label: 'Планирование', title: 'Получен навык!', shape: 'box'},
+		{id: 16, color: 'grey',  label: 'Конфликтология', title: 'Получен навык!', shape: 'box'},
+		{id: 17, color: 'grey',  label: 'Электронная отчетность', title: 'Получен навык!', shape: 'box'},
+		{id: 18,  color: 'grey', label: 'Межотраслевая коммуникация', title: 'Получен навык!', shape: 'box'},
+		{id: 19,  color: 'grey', label: 'Инженерное мышление', title: 'Получен навык!', shape: 'box'},
+		{id: 20,  color: 'grey', label: 'Мультиязычность', title: 'Получен навык!', shape: 'box'},
+		{id: 21,  color: 'grey', label: 'Мультикультурность', title: 'Получен навык!', shape: 'box'},
+		{id: 22,  color: 'grey', label: 'Английский язык', title: 'Получен навык!', shape: 'box'},
+		{id: 23,  color: 'grey', label: 'Международное культурология', title: 'Получен навык!', shape: 'box'},
+		{id: 24,  color: 'grey', label: 'Работа с людьми', title: 'Получен навык!', shape: 'box'},
+		{id: 25,  color: 'grey', label: 'Рациональность', title: 'Получен навык!', shape: 'box'},
+		{id: 26,  color: 'grey', label: 'Мнемоника', title: ' совокупность специальных приёмов и способов, облегчающих запоминание нужной информации и увеличивающих объём памяти <br> путём образования ассоциаций (связей): замена абстрактных объектов и фактов на понятия и представления, <br> имеющие визуальное, аудиальное или кинестетическое представление,  <br> связывание объектов с уже имеющейся информацией в памяти различных типов для упрощения запоминания ', shape: 'box'},
+		{id: 27,  color: 'grey', label: 'Умение работать в условиях неопределенности', title: 'Получен навык!', shape: 'box'},
+		{id: 28,  color: 'grey', label: 'Тайм-менеджмент', title: 'Получен навык!', shape: 'box'},
+		{id: 29,  color: 'grey', label: 'Адаптативность', title: 'Получен навык!', shape: 'box'},
+		{id: 30,  color: 'grey', label: 'Стрессоустойчивость', title: 'Получен навык!', shape: 'box'},
+		{id: 31,  color: 'grey', label: 'Программирование', title: 'Получен навык!', shape: 'box'},
+
+
+		{id: 'p1', color: 'grey', label: 'Специалист по краудсорсингу общественных проблем', title: 'Получен навык!', shape: 'star'},
+		{id: 'p2', color: 'grey', label: 'Модератор платформы общения с госорганами', title: 'Получен навык!', shape: 'ellipse'},
+		{id: 'p3', color: 'grey', label: 'Медиатор социальных конфликтов', title: 'Получен навык!', shape: 'ellipse'},
+		{id: 'p4', color: 'grey', label: 'Модератор платформы персональных благотворительных программ', title: 'Получен навык!', shape: 'ellipse'},
+		{id: 'p5', color: 'grey', label: 'Специалист по организации государственно-частных партнерств в социальной сфере', title: 'Получен навык!', shape: 'ellipse'},
+		{id: 'p6', color: 'grey', label: 'Социальный работник по адаптации людей <br> с ограниченными возможностями через Интернет', title: 'Получен навык!', shape: 'ellipse'},
+		{id: 'p7', color: 'grey', label: 'Специалист по адаптации мигрантов', title: 'Получен навык!', shape: 'ellipse'},
+
+
+		{id: 'pr1',  color: 'grey', label: 'Нормальная анатомия', title: 'Получен навык!', shape: 'box'},
+		{id: 'pr2',  color: 'grey', label: 'Клиническая анатомия', title: 'Получен навык!', shape: 'box'},
+		{id: 'pr3',  color: 'grey', label: 'Патологическая анатомия', title: 'Получен навык!', shape: 'box'},
+		{id: 'pr4',  color: 'grey', label: 'Гистология', title: 'Получен навык!', shape: 'box'},
+		{id: 'pr5',  color: 'grey', label: 'Нормальная физиология', title: 'Получен навык!', shape: 'box'},
+		{id: 'pr6',  color: 'grey', label: 'Патологическая физиология', title: 'Получен навык!', shape: 'box'},
+		{id: 'pr7',  color: 'grey', label: 'Пропедевтика внутренних болезней', title: 'Получен навык!', shape: 'box'},
+		{id: 'pr8',  color: 'grey', label: 'Биология человека', title: 'Получен навык!', shape: 'box'},
+		{id: 'pr9',  color: 'grey', label: 'Неорганическая химия', title: 'Получен навык!', shape: 'box'},
+		{id: 'pr10', color: 'grey', label: 'Органическая химия', title: 'Получен навык!', shape: 'box'},
+		{id: 'pr11', color: 'grey', label: 'Биохимия', title: 'Получен навык!', shape: 'box'},
+		{id: 'pr12', color: 'grey', label: 'Фармакология', title: 'Получен навык!', shape: 'box'},
+		{id: 'pr13', color: 'grey', label: 'Клиническая фармакология', title: 'Получен навык!', shape: 'box'},
+		{id: 'pr14', color: 'grey', label: 'Микробиология', title: 'Получен навык!', shape: 'box'},
+		{id: 'pr15', color: 'grey', label: 'Иммунология', title: 'Получен навык!', shape: 'box'},
+		{id: 'pr16', color: 'grey', label: 'Общая хирургия', title: 'Получен навык!', shape: 'box'},
+		{id: 'pr17', color: 'grey', label: 'Факультетская терапия', title: 'Получен навык!', shape: 'box'},
+		{id: 'pr18', color: 'grey', label: 'Госпитальная терапия', title: 'Получен навык!', shape: 'box'},
+		{id: 'pr19', color: 'grey', label: 'Топографическая анатомия', title: 'Получен навык!', shape: 'box'},
+		{id: 'pr20', color: 'grey', label: 'Поликлиническая терапия', title: 'Получен навык!', shape: 'box'},
+		{id: 'pr21', color: 'grey', label: 'Факультетская хирургия', title: 'Получен навык!', shape: 'box'},
+		{id: 'pr22', color: 'grey', label: 'Госпитальная хирургия', title: 'Получен навык!', shape: 'box'},
+		{id: 'pr23', color: 'grey', label: 'Неврология и нейрохирургия', title: 'Получен навык!', shape: 'box'},
+		{id: 'pr24', color: 'grey', label: 'Психиатрия', title: 'Получен навык!', shape: 'box'},
+		{id: 'pr25', color: 'grey', label: 'Оториноларингология', title: 'Получен навык!', shape: 'box'},
+		{id: 'pr26', color: 'grey', label: 'Офтальмология', title: 'Получен навык!', shape: 'box'},
+		{id: 'pr27', color: 'grey', label: 'Дерматовенерология', title: 'Получен навык!', shape: 'box'},
+		{id: 'pr28', color: 'grey', label: 'Организация здравоохранения', title: 'Получен навык!', shape: 'box'},
+		{id: 'pr29', color: 'grey', label: 'Медицина катастроф', title: 'Получен навык!', shape: 'box'},
+		{id: 'pr30', color: 'grey', label: 'Педиатрия', title: 'Получен навык!', shape: 'box'},
+		{id: 'pr31', color: 'grey', label: 'Генетика', title: 'Получен навык!', shape: 'box'},
+		{id: 'pr32', color: 'grey', label: 'Психология', title: 'Получен навык!', shape: 'box'},
+		{id: 'pr33', color: 'grey', label: 'Английский язык', title: 'Получен навык!', shape: 'box'},
+		{id: 'pr34', color: 'grey', label: 'Латинский язык', title: 'Получен навык!', shape: 'box'},
+		{id: 'pr35', color: 'grey', label: 'Деонтология', title: 'Получен навык!', shape: 'box'},
+		{id: 'pr36', color: 'grey', label: 'История', title: 'Получен навык!', shape: 'box'},
+		{id: 'pr37', color: 'grey', label: 'Рентгенология', title: 'Получен навык!', shape: 'box'},
+		{id: 'pr38', color: 'grey', label: 'Гигиена', title: 'Получен навык!', shape: 'box'},
+		{id: 'pr39', color: 'grey', label: 'Медицинская реабилитация', title: 'Получен навык!', shape: 'box'},
+		{id: 'pr40', color: 'grey', label: 'Акушерство и гинекология', title: 'Получен навык!', shape: 'box'},
+		{id: 'pr41', color: 'grey', label: 'Урология', title: 'Получен навык!', shape: 'box'},
+		{id: 'pr42', color: 'grey', label: 'Инфекционные болезни', title: 'Получен навык!', shape: 'box'},
+		{id: 'pr43', color: 'grey', label: 'Стоматология', title: 'Получен навык!', shape: 'box'},
+		{id: 'pr44', color: 'grey', label: 'Анестезиология', title: 'Получен навык!', shape: 'box'},
+		{id: 'pr45', color: 'grey', label: 'Эпидемиологияия', title: 'Получен навык!', shape: 'box'},
+		{id: 'pr46', color: 'grey', label: 'Неотложные состояния', title: 'Получен навык!', shape: 'box'},
+		{id: 'pr47', color: 'grey', label: 'Врач общей практики', title: 'Получен навык!', shape: 'star'}
+
+  ]);
+
+  // create an array with edges
+  var edges = new vis.DataSet([
+	{from: 1, to: 2,  arrows:'from'},
+	{from: 1, to: 13, arrows:'from'},
+	{from: 1, to: 3,  arrows:'from'},
+	{from: 1, to: 4,  arrows:'from'},
+	{from: 1, to: 30, arrows:'from'},
+	{from: 5, to: 9,  arrows:'from'},
+	{from: 5, to: 8,  arrows:'from'},
+	{from: 5, to: 7,  arrows:'from'},
+	{from: 5, to: 6,  arrows:'from'},
+	{from: 10, to: 11, arrows:'from'},
+	{from: 10, to: 15, arrows:'from'},
+	{from: 10, to: 14, arrows:'from'},
+	{from: 10, to: 17, arrows:'from'},
+	{from: 10, to: 12, arrows:'from'},
+	{from: 10, to: 13, arrows:'from'},
+	{from: 10, to: 16, arrows:'from'},
+	{from: 10, to: 30, arrows:'from'},
+	{from: 18, to: 13, arrows:'from'},
+	{from: 18, to: 19, arrows:'from'},
+	{from: 20, to: 22, arrows:'from'},
+	{from: 21, to: 23, arrows:'from'},
+	{from: 24, to: 13, arrows:'from'},
+	{from: 24, to: 14, arrows:'from'},
+	{from: 24, to: 11, arrows:'from'},
+	{from: 24, to: 30, arrows:'from'},
+	{from: 24, to: 16, arrows:'from'},
+	{from: 24, to: 25, arrows:'from'},
+	{from: 24, to: 26, arrows:'from'},
+	{from: 27, to: 25, arrows:'from'},
+	{from: 27, to: 28, arrows:'from'},
+	{from: 27, to: 29, arrows:'from'},
+	{from: 27, to: 30, arrows:'from'},
+
+
+	{from: 'p1', to: 10, arrows:'from'},
+	{from: 'p1', to: 31, arrows:'from'},
+	{from: 'p1', to: 1,  arrows:'from'},
+	{from: 'p1', to: 20, arrows:'from'},
+	{from: 'p1', to: 21, arrows:'from'},
+	{from: 'p1', to: 24, arrows:'from'},
+	{from: 'p2', to: 10, arrows:'from'},
+	{from: 'p2', to: 20, arrows:'from'},
+	{from: 'p2', to: 21, arrows:'from'},
+	{from: 'p2', to: 24, arrows:'from'},
+	{from: 'p3', to: 5,  arrows:'from'},
+	{from: 'p3', to: 20, arrows:'from'},
+	{from: 'p3', to: 21, arrows:'from'},
+	{from: 'p3', to: 24, arrows:'from'},
+	{from: 'p3', to: 27, arrows:'from'},
+	{from: 'p4', to: 10, arrows:'from'},
+	{from: 'p4', to: 31, arrows:'from'},
+	{from: 'p4', to: 1,  arrows:'from'},
+	{from: 'p4', to: 20, arrows:'from'},
+  {from: 'p4', to: 21, arrows:'from'},
+  {from: 'p4', to: 24, arrows:'from'},
+  {from: 'p5', to: 5,  arrows:'from'},
+  {from: 'p5', to: 18, arrows:'from'},
+  {from: 'p5', to: 10, arrows:'from'},
+  {from: 'p5', to: 1,  arrows:'from'},
+  {from: 'p5', to: 20, arrows:'from'},
+  {from: 'p5', to: 21, arrows:'from'},
+  {from: 'p5', to: 24, arrows:'from'},
+  {from: 'p6', to: 10, arrows:'from'},
+  {from: 'p6', to: 31, arrows:'from'},
+  {from: 'p6', to: 1,  arrows:'from'},
+  {from: 'p6', to: 24, arrows:'from'},
+  {from: 'p7', to: 31, arrows:'from'},
+  {from: 'p7', to: 20, arrows:'from'},
+  {from: 'p7', to: 21, arrows:'from'},
+  {from: 'p7', to: 24, arrows:'from'},
+
+  {from: 'pr47', to: 'pr1', arrows:'from'},
+  {from: 'pr47', to: 'pr2', arrows:'from'},
+  {from: 'pr47', to: 'pr3', arrows:'from'},
+  {from: 'pr47', to: 'pr4', arrows:'from'},
+  {from: 'pr47', to: 'pr5', arrows:'from'},
+  {from: 'pr47', to: 'pr6', arrows:'from'},
+  {from: 'pr47', to: 'pr7', arrows:'from'},
+  {from: 'pr47', to: 'pr8', arrows:'from'},
+  {from: 'pr47', to: 'pr9', arrows:'from'},
+  {from: 'pr47', to: 'pr10', arrows:'from'},
+  {from: 'pr47', to: 'pr11', arrows:'from'},
+  {from: 'pr47', to: 'pr12', arrows:'from'},
+  {from: 'pr47', to: 'pr13', arrows:'from'},
+  {from: 'pr47', to: 'pr14', arrows:'from'},
+  {from: 'pr47', to: 'pr15', arrows:'from'},
+  {from: 'pr47', to: 'pr16', arrows:'from'},
+  {from: 'pr47', to: 'pr17', arrows:'from'},
+  {from: 'pr47', to: 'pr18', arrows:'from'},
+  {from: 'pr47', to: 'pr19', arrows:'from'},
+  {from: 'pr47', to: 'pr20', arrows:'from'},
+  {from: 'pr47', to: 'pr21', arrows:'from'},
+  {from: 'pr47', to: 'pr22', arrows:'from'},
+  {from: 'pr47', to: 'pr23', arrows:'from'},
+  {from: 'pr47', to: 'pr24', arrows:'from'},
+  {from: 'pr47', to: 'pr25', arrows:'from'},
+  {from: 'pr47', to: 'pr26', arrows:'from'},
+  {from: 'pr47', to: 'pr27', arrows:'from'},
+  {from: 'pr47', to: 'pr28', arrows:'from'},
+  {from: 'pr47', to: 'pr29', arrows:'from'},
+  {from: 'pr47', to: 'pr30', arrows:'from'},
+  {from: 'pr47', to: 'pr31', arrows:'from'},
+  {from: 'pr47', to: 'pr32', arrows:'from'},
+  {from: 'pr47', to: 'pr33', arrows:'from'},
+  {from: 'pr47', to: 'pr34', arrows:'from'},
+  {from: 'pr47', to: 'pr35', arrows:'from'},
+  {from: 'pr47', to: 'pr36', arrows:'from'},
+  {from: 'pr47', to: 'pr37', arrows:'from'},
+  {from: 'pr47', to: 'pr38', arrows:'from'},
+  {from: 'pr47', to: 'pr39', arrows:'from'},
+  {from: 'pr47', to: 'pr40', arrows:'from'},
+  {from: 'pr47', to: 'pr41', arrows:'from'},
+  {from: 'pr47', to: 'pr42', arrows:'from'},
+  {from: 'pr47', to: 'pr43', arrows:'from'},
+  {from: 'pr47', to: 'pr44', arrows:'from'},
+  {from: 'pr47', to: 'pr45', arrows:'from'},
+  {from: 'pr47', to: 'pr46', arrows:'from'},
+  {from: 'pr2', to: 'pr1', arrows:'from'},
+  {from: 'pr3', to: 'pr1', arrows:'from'},
+  {from: 'pr2', to: 'pr7', arrows:'from'},
+  {from: 'pr5', to: 'pr6', arrows:'from'},
+  {from: 'pr10', to: 'pr9', arrows:'from'},
+  {from: 'pr11', to: 'pr9', arrows:'from'},
+  {from: 'pr11', to: 'pr10', arrows:'from'},
+  {from: 'pr13', to: 'pr12', arrows:'from'},
+  {from: 'pr17', to: 'pr7',  arrows:'from'},
+  {from: 'pr18', to: 'pr17', arrows:'from'},
+  {from: 'pr19', to: 'pr1',  arrows:'from'},
+  {from: 'pr21', to: 'pr16', arrows:'from'},
+  {from: 'pr22', to: 'pr21', arrows:'from'},
+  {from: 'pr16', to: 'pr1',  arrows:'from'},
+  {from: 'pr16', to: 'pr19', arrows:'from'},
+  {from: 'pr47', to: 19, arrows:'from'},
+  {from: 'pr47', to: 1, arrows:'from'},
+  {from: 'pr47', to: 2, arrows:'from'},
+  {from: 'pr47', to: 5, arrows:'from'},
+  {from: 'pr47', to: 9, arrows:'from'},
+  {from: 'pr47', to: 12, arrows:'from'},
+  {from: 'pr47', to: 13, arrows:'from'},
+  {from: 'pr47', to: 14, arrows:'from'},
+  {from: 'pr47', to: 19, arrows:'from'}
+  ]);
+
+  // create a network
+  var container = document.getElementById('mynetwork');
+  var data = {
+    nodes: nodes,
+    edges: edges
+  };
+  var options =
+		{
+			interaction:{hover:true},
+
+			nodes:
+			{
+				hidden: true,
+			},
+			edges:
+			{
+				hidden: true,
+			}
+		};
+
+  var network = new vis.Network(container, data, options);
+
+   network.on("doubleClick", function (params) {
+        params.event = "[original event]";
+		nodes.update({
+                    id: params.nodes[0],
+                    color: 'rgba(97,195,238,0.5)'
+                });
+
+         var connectedNodes = network.getConnectedNodes(params.nodes[0]);
+         var connectedEdges = network.getConnectedEdges(params.nodes[0]);
+         var i;
+
+            i=0
+			for (i = 0; i < connectedNodes.length; i++)
+				{
+				nodes.update
+				({
+					id: connectedNodes[i],
+					hidden: false
+				});
+				};
+		    i=0
+ 			for (i = 0; i < connectedEdges.length; i++)
+				{
+				edges.update
+				({
+					id: connectedEdges[i],
+					hidden: false
+				});
+				};
+
+//		nodes.update({
+//					id: nodes.getConnectedNodes(params.nodes[0]),
+//					hidden:false
+//				});
+//	    SelectNodes({id: params.nodes[0]}, 'False')..update({
+//                    color: 'red'
+//                });
+//		nodes.remove({id: params.nodes[0]});
+//		nodes.color({id: params.nodes[0]})='red';
+
+
+    });
+
+
+
+  // обработка ошибки
+
+</script>
+
+<script src="GameMod_files/googleAnalytics.js"></script>
+
+
+
+</body></html>
